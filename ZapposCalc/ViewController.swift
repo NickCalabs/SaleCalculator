@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     var brain = CalculatorBrain()
     
+    //connected to all numbers and the decimal point
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
         if userIsInTheMiddleOfTypingANumber && digit != "." || (digit == "." && display.text!.rangeOfString(".") == nil) {
@@ -31,6 +32,7 @@ class ViewController: UIViewController {
         appendToHistory(digit)
     }
     
+    //connected to Pi and if there were other constants like e
     @IBAction func contantPressed(sender: UIButton) {
         let constant = sender.currentTitle!
         if userIsInTheMiddleOfTypingANumber{
@@ -42,6 +44,7 @@ class ViewController: UIViewController {
         userIsInTheMiddleOfTypingANumber = false
     }
     
+    //all operations including the 75% -10% off operations
     @IBAction func operate(sender: UIButton) {
         if userIsInTheMiddleOfTypingANumber{
             enter()
@@ -84,6 +87,8 @@ class ViewController: UIViewController {
     }
     
     func appendToHistory(op: String){
+        //adds everything to the histroy in a somewhat readable format
+        //can be improved
         if historyLabel.text != nil{
             historyLabel.text = historyLabel.text! + op
         } else {

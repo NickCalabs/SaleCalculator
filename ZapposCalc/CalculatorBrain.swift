@@ -47,7 +47,7 @@ class CalculatorBrain{
         knownOps["√"] = Op.UnaryOperation("√", sqrt)
         knownOps["sin"] = Op.UnaryOperation("sin") { sin($0) }
         knownOps["cos"] = Op.UnaryOperation("cos") { cos($0) }
-        knownOps["75%\noff"] = Op.UnaryOperation("75%\noff") { self.sale(0.25, originalprice: $0) }
+        knownOps["75%\noff"] = Op.UnaryOperation("75%\noff") { self.sale(0.25, originalprice: $0) } //extra buttons for easy sale computations
         knownOps["50%\noff"] = Op.UnaryOperation("50%\noff") { self.sale(0.5, originalprice: $0) }
         knownOps["25%\noff"] = Op.UnaryOperation("25%\noff") { self.sale(0.75, originalprice: $0) }
         knownOps["10%\noff"] = Op.UnaryOperation("10%\noff") { self.sale(0.9, originalprice: $0) }
@@ -57,6 +57,7 @@ class CalculatorBrain{
         return originalprice * percentage
     }
     
+    //recursively operates the entire stack
     private func evaluate(ops: [Op]) -> (result: Double?, remainingOps: [Op]){
         if !ops.isEmpty{
             var remainingOps = ops //could've put 'var' in function before ops
