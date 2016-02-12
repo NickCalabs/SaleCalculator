@@ -32,7 +32,7 @@ class CalculatorBrain{
     
     private var opStack = [Op]()
     
-    private var knownOps = [String:Op]() //can be public if we want to support popele buidling ops
+    private var knownOps = [String:Op]()
     
     var constants = ["π": M_PI]
     

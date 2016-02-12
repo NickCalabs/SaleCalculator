@@ -43,24 +43,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func operate(sender: UIButton) {
-        //let operation = sender.currentTitle!
         if userIsInTheMiddleOfTypingANumber{
             enter()
         }
-        /* irrelevant since now in calc brain
-        if let operation = sender.currentTitle{
-        switch operation {
-        case "×": performOperation(multiply)
-        case "÷": performOperation({(op1: Double, op2: Double) -> Double in
-        return op2 / op1
-        })
-        case "+": performOperation({(op1, op2) in op1 + op2 })
-        case "−": performOperation { $1 - $0 }
-        case "√": performOperation { sqrt($0) }
-        default: break
-        }
-        }
-        */
         
         if let operation = sender.currentTitle{
             if let result = brain.performOperation(operation){
@@ -79,42 +64,8 @@ class ViewController: UIViewController {
         userIsInTheMiddleOfTypingANumber = false
     }
     
-    //can be replaced by above
-    //obsolete along with calcbrain and since it's condensed above
-    /*
-    func multiply(op1: Double, op2: Double) -> Double{
-    return op1 * op2
-    }*/
-    
-    //perform ops are now in calcbrain
-    /*
-    func performOperation(operation: (Double, Double) -> Double){
-    if operandStack.count >= 2 {
-    displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
-    enter()
-    }
-    }
-    
-    //added private to be sure xcode knows this isn't obj -c
-    private func performOperation(operation: Double -> Double) {
-    if operandStack.count >= 1 {
-    displayValue = operation(operandStack.removeLast())
-    enter()
-    }
-    }*/
-    
-    
-    //operand stack in calcbrain
-    //var operandStack = [Double]()
-    
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
-        
-        //undeeded with calcbrain
-        //operandStack.append(displayValue)
-        //print("operandStack = \(operandStack)")
-        
-        //we do need
         if let result = brain.pushOperand(displayValue){
             displayValue = result
         } else {
