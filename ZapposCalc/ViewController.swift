@@ -44,6 +44,10 @@ class ViewController: UIViewController {
         userIsInTheMiddleOfTypingANumber = false
     }
     
+    @IBAction func backspaceSwipe(sender: UISwipeGestureRecognizer) {
+        backspace()
+    }
+    
     //all operations including the 75% -25% off and ± operations
     @IBAction func operate(sender: UIButton) {
         if let operation = sender.currentTitle{
@@ -101,6 +105,15 @@ class ViewController: UIViewController {
             historyLabel.text = historyLabel.text! + op
         } else {
             historyLabel.text = op
+        }
+    }
+    
+    func backspace(){
+        appendToHistory("˿")
+        if display.text!.characters.count > 1{
+            display.text = String(display.text!.characters.dropLast())
+        } else {
+            userIsInTheMiddleOfTypingANumber = false
         }
     }
     
