@@ -397,7 +397,7 @@ off</string>
                                 <color key="backgroundColor" red="0.50196078430000002" green="0.64313725489999995" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal">
-                                    <string key="title">50%
+                                    <string key="title">25%
 off</string>
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
@@ -415,9 +415,7 @@ off</string>
                                 <rect key="frame" x="359" y="117" width="103" height="89"/>
                                 <color key="backgroundColor" red="0.50196078430000002" green="0.64313725489999995" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal">
-                                    <string key="title">25%
-off</string>
+                                <state key="normal" title="±">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -434,9 +432,7 @@ off</string>
                                 <rect key="frame" x="470" y="117" width="102" height="89"/>
                                 <color key="backgroundColor" red="0.50196078430000002" green="0.64313725489999995" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal">
-                                    <string key="title">10%
-off</string>
+                                <state key="normal" title="e">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -446,7 +442,7 @@ off</string>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="operate:" destination="dzu-Dm-hBI" eventType="touchUpInside" id="sez-IZ-CbD"/>
+                                    <action selector="contantPressed:" destination="dzu-Dm-hBI" eventType="touchUpInside" id="fCC-oj-aWK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uqh-J0-2s4">

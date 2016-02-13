@@ -44,13 +44,21 @@ class ViewController: UIViewController {
         userIsInTheMiddleOfTypingANumber = false
     }
     
-    //all operations including the 75% -10% off operations
+    //all operations including the 75% -25% off and ± operations
     @IBAction func operate(sender: UIButton) {
-        if userIsInTheMiddleOfTypingANumber{
-            enter()
-        }
-        
         if let operation = sender.currentTitle{
+            if userIsInTheMiddleOfTypingANumber{
+                if operation == "±" {
+                    let displayText = display.text!
+                    if (displayText.rangeOfString("-") != nil) {
+                        display.text = String(displayText.characters.dropFirst())
+                    } else {
+                        display.text = "-" + displayText
+                    }
+                    return
+                }
+                enter()
+            }
             if let result = brain.performOperation(operation){
                 displayValue = result
                 appendToHistory(operation)

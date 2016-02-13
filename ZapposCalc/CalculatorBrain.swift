@@ -34,7 +34,7 @@ class CalculatorBrain{
     
     private var knownOps = [String:Op]()
     
-    var constants = ["π": M_PI]
+    var constants = ["π": M_PI, "e": M_E]
     
     init(){
         func learnOp(op: Op){
@@ -50,7 +50,8 @@ class CalculatorBrain{
         knownOps["75%\noff"] = Op.UnaryOperation("75%\noff") { self.sale(0.25, originalprice: $0) } //extra buttons for easy sale computations
         knownOps["50%\noff"] = Op.UnaryOperation("50%\noff") { self.sale(0.5, originalprice: $0) }
         knownOps["25%\noff"] = Op.UnaryOperation("25%\noff") { self.sale(0.75, originalprice: $0) }
-        knownOps["10%\noff"] = Op.UnaryOperation("10%\noff") { self.sale(0.9, originalprice: $0) }
+        knownOps["10%\noff"] = Op.UnaryOperation("10%\noff") { self.sale(0.9, originalprice: $0) } //removed for ±
+        knownOps["±"] = Op.UnaryOperation("±", { -$0 })
     }
     
     func sale(percentage: Double, originalprice: Double) -> Double{
